@@ -7,7 +7,7 @@
 - 任何可能会申请显存的操作。
 - 没有同时在capture多个CUDA Graph。
 
-```
+```Python
 class CUDAGraph:
     def __init__(self, place=None, mode="thread_local"):
         # place需要传入paddle.CUDAPlace对象
@@ -33,7 +33,7 @@ class CUDAGraph:
 
 
 ## 动态图的使用方法
-```
+```Python
 import numpy as np
 import paddle
 from paddle.device.cuda.graphs import CUDAGraph
@@ -60,7 +60,7 @@ graph.reset() # 非必须调用，但最好调用以提前释放不需要的显�
 ```
 
 # 静态图的使用方法
-```
+```Python
 import numpy as np
 import paddle
 from paddle.device.cuda.graphs import CUDAGraph
