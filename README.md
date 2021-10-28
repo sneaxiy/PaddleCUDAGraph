@@ -59,7 +59,7 @@ for input_tensor in dataloader():
 graph.reset() # 非必须调用，但最好调用以提前释放不需要的显存
 ```
 
-# 静态图的使用方法
+## 静态图的使用方法
 ```Python
 import numpy as np
 import paddle
