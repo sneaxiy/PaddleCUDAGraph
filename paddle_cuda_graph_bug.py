@@ -22,6 +22,7 @@ if use_cuda_graph:
     graph.capture_end()
     graph.replay()
 
+paddle.device.cuda.current_stream().synchronize()
 print(y.numpy()) 
 
 if use_cuda_graph:
