@@ -82,11 +82,11 @@ graph = None
 capture_batch_id = 1 # 从第几个batch开始capture
 for batch_id, input_tensors in dataloader():
     if graph is not None:
-        input_tensor_var._copy_from(input_tensors[0][input.name])
+        input_tensor_var._copy_from(input_tensors[0][input.name], place)
         graph.replay()
     else:
         if batch_id == capture_batch_id:
-            input_tensor_var._copy_from(input_tensors[0][input.name]) # copy输入
+            input_tensor_var._copy_from(input_tensors[0][input.name], place) # copy输入
             input_tensors = None # capture的时候feed必须是None
             graph = CUDAGraph()
             graph.capture_begin()
